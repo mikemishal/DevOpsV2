@@ -16,16 +16,21 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: apis/trips
+        
     steps:
     - uses: actions/checkout@v2
 
     - name: Set up Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v2.0.3
       with:
-        go-version: 1.17
+        go-version: 1.12
 
-    - name: Build
-      run: go build -v ./...
+    - name: Install dependencies
+      run: go get
 
-    - name: Test
-      run: go test -v ./...
+    - name: Run Unit Tests
+      run: go test ./tests
