@@ -8,12 +8,12 @@ on:
     branches: [ main ]
     paths:
       - apis/user-java/**
-      - .github/workflows/user-test.yaml
+      - .github/workflows/user.yaml
   pull_request:
     branches: [ main ]
     paths:
       - apis/user-java/**
-      - .github/workflows/user-test.yaml
+      - .github/workflows/user.yaml
 
 jobs:
   build:
